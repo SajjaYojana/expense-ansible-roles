@@ -10,10 +10,10 @@
     state: started
     enabled: yes
 
-- name: delete default website
-  ansible.builtin.file:
-    path: /usr/share/nginx/html/
-    state: absent    
+- name: run app pre-requisites
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: app-pre-req
 
 - name: Create html directory
   ansible.builtin.file:
